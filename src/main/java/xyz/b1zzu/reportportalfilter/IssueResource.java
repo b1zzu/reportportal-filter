@@ -41,8 +41,6 @@ public class IssueResource {
                                   @PathParam String ticketId) {
 
         var data = reportPortalService.getTestItem(projectName, filterId, 168, ticketId);
-//        data.content.get(0).getEndTime()
-//        projectName.replace()
         return issue
             .data("issue", ticketId)
             .data("filter", filterId)
