@@ -16,8 +16,6 @@ public class ReportPortalHeadersFactory implements ClientHeadersFactory {
     public MultivaluedMap<String, String> update(MultivaluedMap<String, String> incomingHeaders,
                                                  MultivaluedMap<String, String> clientOutgoingHeaders) {
 
-        // 161ddb16-b9fb-4b44-bac1-a1e7ca1da53c
-        // HttpHeaders.AUTHORIZATION, "bearer " + uuid
         MultivaluedMap<String, String> result = new MultivaluedMapImpl<>();
         result.add(HttpHeaders.AUTHORIZATION, "bearer " + token);
         return result;
