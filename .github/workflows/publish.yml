@@ -23,3 +23,5 @@ jobs:
             -Dquarkus.container-image.push=true \
             -Dquarkus.container-image.username=${{ secrets.CONTAINER_USERNAME }} \
             -Dquarkus.container-image.password=${{ secrets.CONTAINER_PASSWORD }}
+      - run: |
+          kubectl --help
