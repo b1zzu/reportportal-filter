@@ -19,6 +19,7 @@ jobs:
       - run: |
           mvn package \
             --no-transfer-progress \
+            -Dquarkus.application.version=${GITHUB_SHA} \
             -Dquarkus.container-image.push=true \
             -Dquarkus.container-image.username=${{ secrets.CONTAINER_USERNAME }} \
             -Dquarkus.container-image.password=${{ secrets.CONTAINER_PASSWORD }}
