@@ -16,4 +16,8 @@ jobs:
           distribution: 'adopt'
           java-version: '11'
           cache: 'maven'
-      - run: mvn package
+      - run: >
+          mvn package
+            -Dquarkus.container-image.push=true
+            -Dquarkus.container-image.username=${{ secrets.CONTAINER_USERNAME }}
+            -Dquarkus.container-image.password=${{ secrets.CONTAINER_PASSWORD }}
