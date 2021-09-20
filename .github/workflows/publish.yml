@@ -20,8 +20,12 @@ jobs:
           mvn package \
             --no-transfer-progress \
             -Dquarkus.application.version=${GITHUB_SHA} \
-            -Dquarkus.container-image.push=true \
             -Dquarkus.container-image.username=${{ secrets.CONTAINER_USERNAME }} \
-            -Dquarkus.container-image.password=${{ secrets.CONTAINER_PASSWORD }}
+            -Dquarkus.container-image.password=${{ secrets.CONTAINER_PASSWORD }} \
+            -Dquarkus.kubernetes-client.master-url=${{ secrets.KUBERNETES_MASTER }} \
+            -Dquarkus.kubernetes-client.namespace=${{ secrets.KUBERNETES_NAMESPACE }} \
+            -Dquarkus.kubernetes-client.token=${{ secrets.KUBERNETES_TOKEN }} \
+            -Dquarkus.kubernetes.deploy=true
+
       - run: |
           kubectl --help
