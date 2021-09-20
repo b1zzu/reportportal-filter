@@ -62,6 +62,8 @@ public class IssueResource {
 
         Page<TestItemResource> data;
 
+        String filterID = "";
+
         if (isBlank(projectName)
             || isBlank(filterId)
             || isBlank(ticketId)) {
@@ -75,6 +77,8 @@ public class IssueResource {
                     List.of())
                 .content.get(0);
 
+            filterID = filter.getFilterId().toString();
+
             data = reportPortalService.getTestItem(
                 projectName,
                 filter.getFilterId().toString(),
@@ -87,6 +91,7 @@ public class IssueResource {
         return issue
             .data("issue", ticketId)
             .data("filter", filterId)
+            .data("filterid", filterID)
             .data("project", projectName)
             .data("rpurl", url)
             .data("data", data);
